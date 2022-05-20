@@ -12,4 +12,5 @@
     [renderers]="renderers"
     [i18n]="i18n"
     [ajv]="ajv"
+    OnChanges="{({ errors, data }) => console.log('onchange ',data)}"
 ></jsonforms>

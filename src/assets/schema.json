@@ -9,6 +9,61 @@
             "id": { "type": "string" },
             "name": { "type": "string"},
             "department": { "type": "string" },
+            "subscription": {
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "aws-id-12335",
+                  "title": "AWS Subscription",
+                  "filter": "demo",
+                  "apiEndpoint": "http://localhost:3000/subscription",
+                  "selected": "id",
+                  "dependsON": "cloudBox"
+                }
+              ]
+            },
+            "ressorceGroup": {
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "aws-ressorceGroup-12335",
+                  "title": "AWS RessorceGroup",
+                  "filter": "demo",
+                  "apiEndpoint": "http://localhost:3000/aws",
+                  "selected": "id",
+                  "dependsON": "cloudBox"
+                },
+                {
+                  "const": "azure-ressorceGroup-64535",
+                  "title": "Azure RessorceGroup",
+                  "filter": "",
+                  "apiEndpoint": "http://localhost:3000/azure",
+                  "loadOn":"onInit",
+                  "selected": "guid"
+                }
+              ]
+            },
+            "vm": {
+              "type": "string",
+              "oneOf": [
+                {
+                  "const": "aws-vm-12335",
+                  "title": "AWS VM",
+                  "filter": "demo",
+                  "apiEndpoint": "http://localhost:3000/aws",
+                  "selected": "id",
+                  "dependsON": "cloudBox"
+                },
+                {
+                  "const": "azure-vm-64535",
+                  "title": "Azure VM",
+                  "filter": "",
+                  "apiEndpoint": "http://localhost:3000/azure",
+                  "loadOn":"onInit",
+                  "selected": "guid"
+                }
+              ]
+            },
             "emailAddress": { "type": "string", "format": "email" }
           }
         },

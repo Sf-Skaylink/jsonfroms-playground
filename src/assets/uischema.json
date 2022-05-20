@@ -96,6 +96,21 @@
                     },
                     {
                       "type": "Control",
+                      "label": "Subscription",
+                      "scope": "#/properties/customer/properties/subscription"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Choose Enviroment",
+                      "scope": "#/properties/customer/properties/ressorceGroup"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Virtual Machine",
+                      "scope": "#/properties/customer/properties/vm"
+                    },
+                    {
+                      "type": "Control",
                       "scope": "#/properties/customer/properties/emailAddress"
                     }
                   ]

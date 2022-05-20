@@ -5,7 +5,7 @@ export default {
         id: '471201',
         name: 'Sirius Cybernetics Corporation',
         department: 'Complaints Division',
-        phone: '(12) 34 56 78 90'
+        phone: '(12) 34 56 78 90',
       },
       title: '42 killer robots',
       ordered: true,

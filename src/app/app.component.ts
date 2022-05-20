@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
-import { and, createAjv, isControl, optionIs, rankWith, schemaTypeIs, scopeEndsWith, Tester } from '@jsonforms/core';
-import { CustomAutocompleteControlRenderer } from './custom.autocomplete';
+import { and, createAjv, isControl, optionIs, rankWith, scopeEndsWith } from '@jsonforms/core';
+import { RestEndPointControlRenderer, restEndPointControlTester } from './restEndPointControlRenderer';
 import { DataDisplayComponent } from './data.control';
 import { LangComponent } from './lang.control';
 import uischemaAsset from '../assets/uischema.json';
@@ -9,20 +9,16 @@ import schemaAsset from '../assets/schema.json';
 import dataAsset from './data';
 import { parsePhoneNumber } from 'libphonenumber-js';
 
-const departmentTester: Tester = and(
-  schemaTypeIs('string'),
-  scopeEndsWith('department')
-);
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
-})
+} )
+  
 export class AppComponent {
   renderers = [
     ...angularMaterialRenderers,
-    { tester: rankWith(5, departmentTester), renderer: CustomAutocompleteControlRenderer },
+    { tester: restEndPointControlTester, renderer: RestEndPointControlRenderer },
     {
       renderer: DataDisplayComponent,
       tester: rankWith(
@@ -51,7 +47,10 @@ export class AppComponent {
   ajv = createAjv({
     schemaId: 'id',
     allErrors: true
-  });
+  } );
+  
+  initialData = {}
+
   constructor() {
     this.ajv.addFormat('time', '^([0-1][0-9]|2[0-3]):[0-5][0-9]$');
     this.ajv.addFormat('tel', maybePhoneNumber => {
@@ -61,6 +60,6 @@ export class AppComponent {
       } catch (_) {
         return false;
       }
-    });
+    } );
   }
 }

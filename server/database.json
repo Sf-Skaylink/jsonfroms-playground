@@ -1,0 +1,62 @@
+{
+  "subscription": {
+    "type": "string",
+    "oneOf": [
+      {
+        "const": "subscription-1",
+        "title": "Subscription REST 1",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "subscription-2",
+        "title": "Subscription REST 2",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "subscription-3",
+        "title": "Subscription REST 3",
+        "test": "sdasdadsadsadasd"
+      }
+    ]
+  },
+  "aws": {
+    "type": "string",
+    "oneOf": [
+      {
+        "const": "AWS-rest-1",
+        "title": "AWS REST 1",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "AWS-rest-2",
+        "title": "AWS REST 2",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "AWS-rest-3",
+        "title": "AWS REST 3",
+        "test": "sdasdadsadsadasd"
+      }
+    ]
+  },
+  "azure": {
+    "type": "string",
+    "oneOf": [
+      {
+        "const": "Azure-rest-1",
+        "title": "Azure REST 1",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "Azure-rest-2",
+        "title": "Azure REST 2",
+        "test": "sdasdadsadsadasd"
+      },
+      {
+        "const": "Azure-rest-3",
+        "title": "Azure REST 3",
+        "test": "sdasdadsadsadasd"
+      }
+    ]
+  }
+}
