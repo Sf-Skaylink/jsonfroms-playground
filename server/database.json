@@ -3,18 +3,18 @@
     "type": "string",
     "oneOf": [
       {
-        "const": "subscription-1",
-        "title": "Subscription REST 1",
+        "value": "subscription-1",
+        "displayValue": "Subscription REST 1",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "subscription-2",
-        "title": "Subscription REST 2",
+        "value": "subscription-2",
+        "displayValue": "Subscription REST 2",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "subscription-3",
-        "title": "Subscription REST 3",
+        "value": "subscription-3",
+        "displayValue": "Subscription REST 3",
         "test": "sdasdadsadsadasd"
       }
     ]
@@ -23,18 +23,18 @@
     "type": "string",
     "oneOf": [
       {
-        "const": "AWS-rest-1",
-        "title": "AWS REST 1",
+        "value": "AWS-rest-1",
+        "displayValue": "AWS REST 1",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "AWS-rest-2",
-        "title": "AWS REST 2",
+        "value": "AWS-rest-2",
+        "displayValue": "AWS REST 2",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "AWS-rest-3",
-        "title": "AWS REST 3",
+        "value": "AWS-rest-3",
+        "displayValue": "AWS REST 3",
         "test": "sdasdadsadsadasd"
       }
     ]
@@ -43,18 +43,18 @@
     "type": "string",
     "oneOf": [
       {
-        "const": "Azure-rest-1",
-        "title": "Azure REST 1",
+        "value": "Azure-rest-1",
+        "displayValue": "Azure REST 1",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "Azure-rest-2",
-        "title": "Azure REST 2",
+        "value": "Azure-rest-2",
+        "displayValue": "Azure REST 2",
         "test": "sdasdadsadsadasd"
       },
       {
-        "const": "Azure-rest-3",
-        "title": "Azure REST 3",
+        "value": "Azure-rest-3",
+        "displayValue": "Azure REST 3",
         "test": "sdasdadsadsadasd"
       }
     ]

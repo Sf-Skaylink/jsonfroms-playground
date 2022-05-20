@@ -37,9 +37,9 @@ import { DataService } from './data.service';
       >
         <mat-option
           *ngFor="let option of filteredOptions | async"
-          [value]="option.const"
+          [value]="option.value"
         >
-          {{ option.title }}
+          {{ option.displayValue }}
         </mat-option>
       </mat-autocomplete>
       <mat-hint *ngIf="shouldShowUnfocusedDescription()">{{ description }}</mat-hint>
@@ -64,11 +64,8 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   async ngOnInit() {
     super.ngOnInit();
     this.shouldFilter = false
-     if (this.scopedSchema.oneOf["0"]["apiEndpoint"]) {
-       await this.getData( this.scopedSchema.oneOf["0"]["apiEndpoint"] );
-     } else {
-       await this.getData( "http://localhost:3000/subscription" );
-    }
+    //TODO find better way to get apiEndpoint maybe with jsonformsService
+    await this.getData( this.scopedSchema.oneOf["0"]["apiEndpoint"] );
     this.filteredOptions = this.form.valueChanges.pipe(
       startWith(''),
       map(val => this.filter(val))
@@ -102,15 +99,14 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
 
   displayFn = value => {
     if ( value ) {
-      this.result = this.filter( value ).find( x => x[ "const" ] === value )
-      return this.result["title"]
+      this.result = this.filter( value ).find( x => x[ "value" ] === value )
+      return this.result["displayValue"]
     }
   }
 
   async getData (apiEndpoint: string) {
     this.dataService.sendGetRequest(apiEndpoint).subscribe( ( data: any ) => {
       this.restData = data[ "oneOf" ];
-      console.log(this.restData)
     } ) 
   }
 

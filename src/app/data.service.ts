@@ -6,8 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  //private REST_API_SERVER = "http://localhost:3000/aws";
-
   constructor(private httpClient: HttpClient) { }
 
   public sendGetRequest ( server: string ) {
