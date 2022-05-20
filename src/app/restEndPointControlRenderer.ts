@@ -63,16 +63,16 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   
   async ngOnInit() {
     super.ngOnInit();
-    this.shouldFilter = false;
+    this.shouldFilter = false
+     if (this.scopedSchema.oneOf["0"]["apiEndpoint"]) {
+       await this.getData( this.scopedSchema.oneOf["0"]["apiEndpoint"] );
+     } else {
+       await this.getData( "http://localhost:3000/subscription" );
+    }
     this.filteredOptions = this.form.valueChanges.pipe(
       startWith(''),
       map(val => this.filter(val))
     );
-    if (this.result[ "apiEndpoint" ]) {
-      this.getData( this.result[ "apiEndpoint" ] );
-    } else {
-      this.getData( "http://localhost:3000/subscription" );
-    }
   }
 
   updateFilter(event: any) {

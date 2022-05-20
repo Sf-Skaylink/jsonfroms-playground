@@ -32,14 +32,6 @@
                   "apiEndpoint": "http://localhost:3000/aws",
                   "selected": "id",
                   "dependsON": "cloudBox"
-                },
-                {
-                  "const": "azure-ressorceGroup-64535",
-                  "title": "Azure RessorceGroup",
-                  "filter": "",
-                  "apiEndpoint": "http://localhost:3000/azure",
-                  "loadOn":"onInit",
-                  "selected": "guid"
                 }
               ]
             },
@@ -53,14 +45,6 @@
                   "apiEndpoint": "http://localhost:3000/aws",
                   "selected": "id",
                   "dependsON": "cloudBox"
-                },
-                {
-                  "const": "azure-vm-64535",
-                  "title": "Azure VM",
-                  "filter": "",
-                  "apiEndpoint": "http://localhost:3000/azure",
-                  "loadOn":"onInit",
-                  "selected": "guid"
                 }
               ]
             },
