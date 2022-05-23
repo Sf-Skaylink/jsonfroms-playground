@@ -64,7 +64,6 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   async ngOnInit() {
     super.ngOnInit();
     this.shouldFilter = false
-    //TODO find better way to get apiEndpoint maybe with jsonformsService
     await this.getData( this.scopedSchema.oneOf["0"]["apiEndpoint"] );
     this.filteredOptions = this.form.valueChanges.pipe(
       startWith(''),
