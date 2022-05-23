@@ -3,59 +3,65 @@
     "type": "string",
     "oneOf": [
       {
-        "value": "subscription-1",
+        "value": "id-of-subscription-1",
         "displayValue": "Subscription REST 1",
         "test": "sdasdadsadsadasd"
       },
       {
-        "value": "subscription-2",
+        "value": "id-of-subscription-2",
         "displayValue": "Subscription REST 2",
         "test": "sdasdadsadsadasd"
       },
       {
-        "value": "subscription-3",
+        "value": "id-of-subscription-3",
         "displayValue": "Subscription REST 3",
         "test": "sdasdadsadsadasd"
       }
     ]
   },
-  "aws": {
+  "ressorceGroup": {
     "type": "string",
     "oneOf": [
       {
-        "value": "AWS-rest-1",
-        "displayValue": "AWS REST 1",
-        "test": "sdasdadsadsadasd"
+        "value": "ressorceGroup-rest-1",
+        "displayValue": "RessorceGroup REST 1",
+        "test": "sdasdadsadsadasd",
+        "subscription": "id-of-subscription-1"
       },
       {
-        "value": "AWS-rest-2",
-        "displayValue": "AWS REST 2",
-        "test": "sdasdadsadsadasd"
+        "value": "ressorceGroup-rest-2",
+        "displayValue": "RessorceGroup REST 2",
+        "test": "sdasdadsadsadasd",
+        "subscription": "id-of-subscription-1"
       },
       {
-        "value": "AWS-rest-3",
-        "displayValue": "AWS REST 3",
-        "test": "sdasdadsadsadasd"
+        "value": "ressorceGroup-rest-3",
+        "displayValue": "RessorceGroup REST 3",
+        "test": "sdasdadsadsadasd",
+        "subscription": "id-of-subscription-2"
       }
     ]
   },
-  "azure": {
+  "vm": {
     "type": "string",
     "oneOf": [
       {
-        "value": "Azure-rest-1",
-        "displayValue": "Azure REST 1",
-        "test": "sdasdadsadsadasd"
+        "value": "vm-rest-1",
+        "displayValue": "Vm REST 1",
+        "test": "sdasdadsadsadasd",
+        "ressorceGroup": "ressorceGroup-rest-1"
       },
       {
-        "value": "Azure-rest-2",
-        "displayValue": "Azure REST 2",
-        "test": "sdasdadsadsadasd"
+        "value": "vm-rest-2",
+        "displayValue": "Vm REST 2",
+        "test": "sdasdadsadsadasd",
+        "ressorceGroup": "ressorceGroup-rest-2"
       },
       {
-        "value": "Azure-rest-3",
-        "displayValue": "Azure REST 3",
-        "test": "sdasdadsadsadasd"
+        "value": "vm-rest-3",
+        "displayValue": "Vm REST 3",
+        "test": "sdasdadsadsadasd",
+        "ressorceGroup": "ressorceGroup-rest-2"
       }
     ]
   }

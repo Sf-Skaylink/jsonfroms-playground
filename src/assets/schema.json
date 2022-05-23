@@ -6,7 +6,6 @@
         "customer": {
           "type": "object",
           "properties": {
-            "id": { "type": "string" },
             "name": { "type": "string"},
             "department": { "type": "string" },
             "subscription": {
@@ -17,7 +16,6 @@
                   "title": "AWS Subscription",
                   "filter": "demo",
                   "apiEndpoint": "http://localhost:3000/subscription",
-                  "selected": "id",
                   "dependsOn": ""
                 }
               ]
@@ -26,11 +24,10 @@
               "type": "string",
               "oneOf": [
                 {
-                  "const": "aws-ressorceGroup-12335",
+                  "const": "ressorceGroup-12335",
                   "title": "AWS RessorceGroup",
                   "filter": "demo",
-                  "apiEndpoint": "http://localhost:3000/aws",
-                  "selected": "id",
+                  "apiEndpoint": "http://localhost:3000/ressorceGroup",
                   "dependsOn": "subscription"
                 }
               ]
@@ -39,49 +36,15 @@
               "type": "string",
               "oneOf": [
                 {
-                  "const": "aws-vm-12335",
+                  "const": "vm-12335",
                   "title": "AWS VM",
                   "filter": "demo",
-                  "apiEndpoint": "http://localhost:3000/azure",
-                  "selected": "id",
+                  "apiEndpoint": "http://localhost:3000/vm",
                   "dependsOn": "ressorceGroup"
                 }
               ]
-            },
-            "emailAddress": { "type": "string", "format": "email" }
+            }          
           }
-        },
-        "title": {
-          "type": "string",
-          "minLength": 5
-        },
-        "description": {
-          "type": "string"
-        },
-        "ordered": { "type": "boolean" },
-        "processId": {
-          "type": "number",
-          "minimum": 0
-        },
-        "assignee": { "type": "string" },
-        "startDate": {
-          "type": "string",
-          "format": "date"
-        },
-        "endDate": {
-          "type": "string",
-          "format": "date"
-        },
-        "status": {
-          "type": "string",
-          "enum": ["unordered", "planned", "ordered"]
-        },
-        "amount": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 100,
-          "default": 10,
-          "multipleOf": 1
         }
       }
     }
