@@ -88,8 +88,7 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   }
 
   filter ( val: string ): string[] {
-    this.filterEndpointResults();
-    return (this.options || this.scopedSchema.enum || this.restData || this.scopedSchema.oneOf || []).filter(
+    return (this.options || this.scopedSchema.enum || this.filterEndpointResults() || this.scopedSchema.oneOf || []).filter(
       option =>
         !this.shouldFilter ||
         !val ||
@@ -111,12 +110,10 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   }
 
   filterEndpointResults () {
-    console.log( this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer ) //subscription
-    console.log( this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ) // id-of-subscription-1
-    console.log("filter", this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ])
     if (this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ]) {
-      console.log(this.restData.find( x => x[this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]] === this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] ))
+      return this.restData.filter( x => x[this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]] === this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] )
     }
+    return this.restData
   }
 
   protected getOwnProps(): OwnPropsOfAutoComplete {
