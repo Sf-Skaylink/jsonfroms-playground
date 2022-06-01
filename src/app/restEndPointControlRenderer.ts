@@ -88,6 +88,7 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   }
 
   filter ( val: string ): string[] {
+    this.clearFields();
     return (this.options || this.scopedSchema.enum || this.filterEndpointResults() || this.scopedSchema.oneOf || []).filter(
       option =>
         !this.shouldFilter ||
@@ -114,6 +115,14 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
       return this.restData.filter( x => x[this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]] === this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] )
     }
     return this.restData
+  }
+
+  clearFields () {
+     
+    // console.log( "data", this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] );
+    if (this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]) {
+      console.log("scopedSchema",this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] );
+    }
   }
 
   protected getOwnProps(): OwnPropsOfAutoComplete {

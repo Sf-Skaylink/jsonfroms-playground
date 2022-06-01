@@ -13,8 +13,7 @@
               "oneOf": [
                 {
                   "const": "aws-id-12335",
-                  "title": "AWS Subscription",
-                  "filter": "demo",
+                  "title": "Subscription",
                   "apiEndpoint": "http://localhost:3000/subscription",
                   "dependsOn": ""
                 }
@@ -25,8 +24,7 @@
               "oneOf": [
                 {
                   "const": "ressorceGroup-12335",
-                  "title": "AWS RessorceGroup",
-                  "filter": "demo",
+                  "title": "RessorceGroup",
                   "apiEndpoint": "http://localhost:3000/ressorceGroup",
                   "dependsOn": "subscription"
                 }
@@ -37,8 +35,7 @@
               "oneOf": [
                 {
                   "const": "vm-12335",
-                  "title": "AWS VM",
-                  "filter": "demo",
+                  "title": "VM",
                   "apiEndpoint": "http://localhost:3000/vm",
                   "dependsOn": "ressorceGroup"
                 }
