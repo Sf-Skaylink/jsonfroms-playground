@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges  } from '@angular/core';
 import { angularMaterialRenderers } from '@jsonforms/angular-material';
 import { and, createAjv, isControl, optionIs, rankWith, scopeEndsWith } from '@jsonforms/core';
 import { RestEndPointControlRenderer, restEndPointControlTester } from './restEndPointControlRenderer';

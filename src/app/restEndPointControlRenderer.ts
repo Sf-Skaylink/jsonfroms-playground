@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, SimpleChanges  } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { JsonFormsAngularService, JsonFormsControl } from '@jsonforms/angular';
 import {
@@ -37,9 +37,9 @@ import { DataService } from './data.service';
       >
         <mat-option
           *ngFor="let option of filteredOptions | async"
-          [value]="option.value"
+          [value]="option.value || option.const"
         >
-          {{ option.displayValue }}
+          {{ option.displayValue || option.title }}
         </mat-option>
       </mat-autocomplete>
       <mat-hint *ngIf="shouldShowUnfocusedDescription()">{{ description }}</mat-hint>
@@ -64,15 +64,20 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   async ngOnInit() {
     super.ngOnInit();
     this.shouldFilter = false
-    await this.getData( this.scopedSchema.oneOf["0"]["apiEndpoint"] );
+    if (this.scopedSchema.oneOf["0"]["apiEndpoint"]) {
+      await this.getData( this.scopedSchema.oneOf[ "0" ][ "apiEndpoint" ] );
+    }
     this.filteredOptions = this.form.valueChanges.pipe(
       startWith(''),
       map(val => this.filter(val))
     );
   }
 
+  ngOnChanges ( changes: SimpleChanges ) {
+    console.log("onchange",changes)
+  }
+
   updateFilter(event: any) {
-    // ENTER
     if (event.keyCode === 13) {
       this.shouldFilter = false;
     } else {
@@ -88,8 +93,8 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
   }
 
   filter ( val: string ): string[] {
-    this.clearFields();
-    return (this.options || this.scopedSchema.enum || this.filterEndpointResults() || this.scopedSchema.oneOf || []).filter(
+    let values = this.scopedSchema.oneOf["0"]["apiEndpoint"] ? this.filterEndpointResults() : this.scopedSchema.oneOf
+    return (this.options || this.scopedSchema.enum || values || []).filter(
       option =>
         !this.shouldFilter ||
         !val ||
@@ -104,7 +109,8 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
     }
   }
 
-  async getData (apiEndpoint: string) {
+  async getData ( apiEndpoint: string ) {
+    // Baseurl and query implementation
     this.dataService.sendGetRequest(apiEndpoint).subscribe( ( data: any ) => {
       this.restData = data[ "oneOf" ];
     } )
@@ -112,17 +118,9 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
 
   filterEndpointResults () {
     if (this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ]) {
-      return this.restData.filter( x => x[this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]] === this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] )
+      return this.restData.filter( x => x["filterId"] === this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] )
     }
     return this.restData
-  }
-
-  clearFields () {
-     
-    // console.log( "data", this.jsonFormsService.getState().jsonforms.core.data.orders[ 0 ].customer[ this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] ] );
-    if (this.scopedSchema.oneOf[ "0" ][ "dependsOn" ]) {
-      console.log("scopedSchema",this.scopedSchema.oneOf[ "0" ][ "dependsOn" ] );
-    }
   }
 
   protected getOwnProps(): OwnPropsOfAutoComplete {

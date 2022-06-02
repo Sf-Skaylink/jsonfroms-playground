@@ -26,19 +26,19 @@
         "value": "ressorceGroup-rest-1",
         "displayValue": "RessorceGroup REST 1",
         "test": "sdasdadsadsadasd",
-        "subscription": "id-of-subscription-1"
+        "filterId": "id-of-subscription-1"
       },
       {
         "value": "ressorceGroup-rest-2",
         "displayValue": "RessorceGroup REST 2",
         "test": "sdasdadsadsadasd",
-        "subscription": "id-of-subscription-1"
+        "filterId": "id-of-subscription-1"
       },
       {
         "value": "ressorceGroup-rest-3",
         "displayValue": "RessorceGroup REST 3",
         "test": "sdasdadsadsadasd",
-        "subscription": "id-of-subscription-2"
+        "filterId": "id-of-subscription-2"
       }
     ]
   },
@@ -49,19 +49,19 @@
         "value": "vm-rest-1",
         "displayValue": "Vm REST 1",
         "test": "sdasdadsadsadasd",
-        "ressorceGroup": "ressorceGroup-rest-1"
+        "filterId": "ressorceGroup-rest-1"
       },
       {
         "value": "vm-rest-2",
         "displayValue": "Vm REST 2",
         "test": "sdasdadsadsadasd",
-        "ressorceGroup": "ressorceGroup-rest-2"
+        "filterId": "ressorceGroup-rest-2"
       },
       {
         "value": "vm-rest-3",
         "displayValue": "Vm REST 3",
         "test": "sdasdadsadsadasd",
-        "ressorceGroup": "ressorceGroup-rest-2"
+        "filterId": "ressorceGroup-rest-2"
       }
     ]
   }

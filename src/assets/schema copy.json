@@ -29,7 +29,7 @@
                 {
                   "const": "ressorceGroup-12335",
                   "title": "RessorceGroup",
-                  "apiEndpoint": "http://localhost:3000/ressorceGroup",
+                  "apiEndpoint": "inventory",
                   "dependsOn": "subscription",
                   "Query" : {
                     "Type": "RessourceGroups",
@@ -44,7 +44,7 @@
                 {
                   "const": "vm-12335",
                   "title": "VM",
-                  "apiEndpoint": "http://localhost:3000/vm",
+                  "apiEndpoint": "inventory",
                   "dependsOn": "ressorceGroup",
                   "Query" : {
                     "Type": "virtualMachines",
@@ -63,16 +63,7 @@
                   "dependsOn": "ressorceGroup"
                 }
               ]
-            },
-            "cloud": {
-              "type": "string",
-              "oneOf": [
-                {
-                  "const": "cloud-23233",
-                  "title": "Cloud Test 1"
-                }
-              ]
-            }                           
+            }                   
           }
         }
       }

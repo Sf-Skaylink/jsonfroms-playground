@@ -39,6 +39,11 @@
                       "type": "Control",
                       "label": "Virtual Machine",
                       "scope": "#/properties/customer/properties/vm"
+                    },
+                    {
+                      "type": "Control",
+                      "label": "Cloud",
+                      "scope": "#/properties/customer/properties/cloud"
                     }
                   ]
                 }
