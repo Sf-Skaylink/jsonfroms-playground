@@ -123,6 +123,15 @@ export class RestEndPointControlRenderer extends JsonFormsControl {
     return this.restData
   }
 
+  // Todo Mapping of the rest endpoints results into a oneOF
+  mapResults ( results: any[] ) {
+    return results.map( x => {
+      return {
+        oneOf: [ { ...x } ]
+        }
+    } )
+  }
+  
   protected getOwnProps(): OwnPropsOfAutoComplete {
     return {
       ...super.getOwnProps(),

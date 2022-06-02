@@ -32,7 +32,7 @@
                   "apiEndpoint": "http://localhost:3000/ressorceGroup",
                   "dependsOn": "subscription",
                   "Query" : {
-                    "Type": "RessourceGroups",
+                    "Type": "ressourceGroups",
                     "FilterScope": "providerContract"
                   }
                 }
@@ -43,7 +43,7 @@
               "oneOf": [
                 {
                   "const": "vm-12335",
-                  "title": "VM",
+                  "title": "vm",
                   "apiEndpoint": "http://localhost:3000/vm",
                   "dependsOn": "ressorceGroup",
                   "Query" : {

@@ -4,18 +4,15 @@
     "oneOf": [
       {
         "value": "id-of-subscription-1",
-        "displayValue": "Subscription REST 1",
-        "test": "sdasdadsadsadasd"
+        "displayValue": "Subscription REST 1"
       },
       {
         "value": "id-of-subscription-2",
-        "displayValue": "Subscription REST 2",
-        "test": "sdasdadsadsadasd"
+        "displayValue": "Subscription REST 2"
       },
       {
         "value": "id-of-subscription-3",
-        "displayValue": "Subscription REST 3",
-        "test": "sdasdadsadsadasd"
+        "displayValue": "Subscription REST 3"
       }
     ]
   },
@@ -25,19 +22,16 @@
       {
         "value": "ressorceGroup-rest-1",
         "displayValue": "RessorceGroup REST 1",
-        "test": "sdasdadsadsadasd",
         "filterId": "id-of-subscription-1"
       },
       {
         "value": "ressorceGroup-rest-2",
         "displayValue": "RessorceGroup REST 2",
-        "test": "sdasdadsadsadasd",
         "filterId": "id-of-subscription-1"
       },
       {
         "value": "ressorceGroup-rest-3",
         "displayValue": "RessorceGroup REST 3",
-        "test": "sdasdadsadsadasd",
         "filterId": "id-of-subscription-2"
       }
     ]
@@ -48,19 +42,16 @@
       {
         "value": "vm-rest-1",
         "displayValue": "Vm REST 1",
-        "test": "sdasdadsadsadasd",
         "filterId": "ressorceGroup-rest-1"
       },
       {
         "value": "vm-rest-2",
         "displayValue": "Vm REST 2",
-        "test": "sdasdadsadsadasd",
         "filterId": "ressorceGroup-rest-2"
       },
       {
         "value": "vm-rest-3",
         "displayValue": "Vm REST 3",
-        "test": "sdasdadsadsadasd",
         "filterId": "ressorceGroup-rest-2"
       }
     ]
